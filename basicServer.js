@@ -9,8 +9,12 @@ const app = express();
 //setup public directory for static contents
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 //routing
-var devices = require('./devices')(app);
+app.get('/', function(req, res){
+       res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 
 app.listen(port, function(){
     console.log(`server is listening on port: ${chalk.green(port)}`);
