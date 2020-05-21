@@ -9,6 +9,7 @@ module.exports = function (app) {
     app.post('/devices', function (req, res) {
 
         //todo: validation
+        console.log(req.body);
         _devices.push(req.body);
         res.send({ info: 'device created successfully' });
     });
@@ -27,7 +28,7 @@ module.exports = function (app) {
 
     //Update
     app.put('/devices/:id', function (req, res) {
-        let index = _findIndex(_devices, { name: req.params.id });
+        let index = _.findIndex(_devices, { name: req.params.id });
         _.merge(_devices[index], req.body)
         res.send({ info: 'device updated successfully' });
     });

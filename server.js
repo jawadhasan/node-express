@@ -6,6 +6,7 @@ const path = require('path'); //built-in module
 const port = process.env.PORT || 3000;
 const app = express();
 
+app.use(express.json())
 //setup public directory for static contents
 app.use(express.static(path.join(__dirname, 'public')));
 
