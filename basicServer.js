@@ -1,22 +1,28 @@
+const express = require('express');
 
-const express = require('express'); //commonJS pattern
-const chalk = require('chalk'); //colorize our log messages
-const path = require('path'); //built-in module
-
-const port = process.env.PORT || 3000;
 const app = express();
+const port = process.env.PORT || 3000;
 
-//setup public directory for static contents
-app.use(express.static(path.join(__dirname, 'public')));
+//ejs view-engine
+app.set('view engine', 'ejs');
 
 
-//routing
-app.get('/', function(req, res){
-       res.sendFile(path.join(__dirname, 'public', 'index.html'));
+app.get('/', function (req, res) {
+    res.render('index');
 });
 
+app.get('/about', (req, res) => {
+    res.render('about', {
+        name: 'ABC Company',
+        address: "XYZ street, dusseldorf, Germany",
+        web: "http:example.com"
+    });
+})
 
-app.listen(port, function(){
-    console.log(`server is listening on port: ${chalk.green(port)}`);
+app.listen(port, function () {
+    console.log(`server is listening on port: ${port}`);
 });
+
+  //res.send('Hello World'); //instead of res.end()
+       //res.send({title: 'Express demo'}); //or send JSON
 

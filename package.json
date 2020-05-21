@@ -19,6 +19,7 @@
   "homepage": "https://github.com/jawadhasan/node-express#readme",
   "dependencies": {
     "chalk": "^4.0.0",
+    "ejs": "^3.1.3",
     "express": "^4.17.1",
     "lodash": "^4.17.15",
     "nodemon": "^2.0.3"
