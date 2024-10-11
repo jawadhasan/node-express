@@ -5,6 +5,15 @@ module.exports = function (app) {
     //in-memory array
     _devices = [];
 
+
+    app.post('/analytics', function (req, res) {
+
+        //todo: validation
+        console.log(req.body);
+        // _devices.push(req.body);
+        res.send({ info: 'analytics processed successfully' });
+    });
+
     //create
     app.post('/devices', function (req, res) {
 

@@ -3,7 +3,7 @@ const express = require('express'); //commonJS pattern
 const chalk = require('chalk'); //colorize our log messages
 const path = require('path'); //built-in module
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 18081;
 const app = express();
 
 app.use(express.json())
